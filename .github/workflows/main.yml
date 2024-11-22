@@ -1,0 +1,65 @@
+# Function with bugs
+def calculate_average(numbers):
+    total = 0
+    count = 0
+    
+    for num in numbers:
+        total += num
+        count += 1
+    
+    # Bug 1: Doesn't handle empty list
+    return total / count
+
+# Function with array index error
+def get_first_last(arr):
+    # Bug 2: Doesn't check array length
+    return [arr[0], arr[-1]]
+
+# Function with type error
+def multiply_strings(text, n):
+    # Bug 3: Doesn't validate input types
+    return text * n
+
+# Test cases to reveal bugs
+def test_functions():
+    print("Testing calculate_average:")
+    try:
+        result = calculate_average([])
+        print("Test 1:", result)
+    except Exception as e:
+        print("Test 1 Error:", str(e))
+    
+    try:
+        result = calculate_average([1, 2, 3, 4, 5])
+        print("Test 2:", result)
+    except Exception as e:
+        print("Test 2 Error:", str(e))
+        
+    print("\nTesting get_first_last:")
+    try:
+        result = get_first_last([])
+        print("Test 3:", result)
+    except Exception as e:
+        print("Test 3 Error:", str(e))
+    
+    try:
+        result = get_first_last([1, 2, 3])
+        print("Test 4:", result)
+    except Exception as e:
+        print("Test 4 Error:", str(e))
+        
+    print("\nTesting multiply_strings:")
+    try:
+        result = multiply_strings("hello", "3")
+        print("Test 5:", result)
+    except Exception as e:
+        print("Test 5 Error:", str(e))
+    
+    try:
+        result = multiply_strings("hello", 3)
+        print("Test 6:", result)
+    except Exception as e:
+        print("Test 6 Error:", str(e))
+
+# Run the tests
+test_functions()
